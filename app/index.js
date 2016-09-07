@@ -46,6 +46,6 @@ const Avatar = React.createClass({
 })
 
 ReactDOM.render(
-  <Avatar username={USER_DATA} />,
+  <Avatar user={USER_DATA} />,
   document.getElementById('app')
 )
