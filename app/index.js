@@ -1,3 +1,11 @@
+/*
+[F]ocused
+[I]ndependent
+[R]eusable
+[S]mall
+[T]estable
+*/
+
 const React = require('react')
 const ReactDOM = require('react-dom')
 
@@ -13,13 +21,27 @@ const ProfilePic = React.createClass({
   }
 })
 
+const Link = React.createClass({
+  changeURL: function () {
+    window.location.replace(this.props.href)
+  },
+  render: function () {
+    return (
+      <span style={{color: 'dodgerblue', cursor: 'pointer'}}
+      onClick={this.changeURL}>
+        {this.props.children}
+      </span>
+    )
+  }
+})
+
 var ProfileLink = React.createClass({
   render: function () {
     return (
       <div>
-        <a href={'https://www.github.com/' + this.props.username}>
+        <Link href={'https://www.github.com/' + this.props.username}>
           {this.props.username}
-        </a>
+        </Link>
       </div>
     )
   }
