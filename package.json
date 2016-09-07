@@ -4,7 +4,8 @@
   "description": "Github Battle App",
   "main": "index.js",
   "scripts": {
-    "production": "webpack -p"
+    "production": "webpack -p",
+    "start": "webpack-dev-server"
   },
   "repository": {
     "type": "git",
