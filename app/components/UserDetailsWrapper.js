@@ -2,7 +2,7 @@ const React = require('react')
 const PropTypes = React.PropTypes
 
 function UserDetailsWrapper(props) {
-  return (
+    return (
     <div className='col-sm-6'>
       <p className='lead'>{props.header}</p>
       {props.children}
@@ -11,7 +11,7 @@ function UserDetailsWrapper(props) {
 }
 
 UserDetailsWrapper.propType = {
-  header: PropTypes.string.isRequired,
+    header: PropTypes.string.isRequired,
 }
 
 module.exports = UserDetailsWrapper

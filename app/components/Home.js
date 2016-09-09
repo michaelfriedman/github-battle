@@ -4,8 +4,8 @@ const ReactRouter = require('react-router')
 const Link = ReactRouter.Link
 
 const Home = React.createClass({
-  render: function () {
-    return (
+    render: function () {
+        return (
       <div className='jumbotron col-sm-12 text-center' style={transparentBg}>
       <h1> Github Battle </h1>
       <p className='lead'>This fancy placeholder</p>
@@ -14,7 +14,7 @@ const Home = React.createClass({
       </Link>
       </div>
     )
-  }
+    }
 })
 
 module.exports = Home

@@ -2,7 +2,7 @@ const React = require('react')
 const PropTypes = React.PropTypes
 
 function UserDetails(user) {
-  return (
+    return (
     <div>
     {!!user.score && <li className="list-group-item"><h3>Score: {user.score}</h3></li>}
     <li className="list-group-item"> <img src={user.info.avatar_url} className="img-rounded img-responsive"/></li>
@@ -19,18 +19,18 @@ function UserDetails(user) {
 }
 
 UserDetails.propTypes = {
-  score: PropTypes.number,
-  info: PropTypes.shape({
-    avatar_url: PropTypes.string.isRequired,
-    blog: PropTypes.string,
-    company: PropTypes.string,
-    followers: PropTypes.number.isRequired,
-    following: PropTypes.number.isRequired,
-    location: PropTypes.string,
-    login: PropTypes.string.isRequired,
-    name: PropTypes.string,
-    public_repos: PropTypes.number.isRequired,
-  })
+    score: PropTypes.number,
+    info: PropTypes.shape({
+        avatar_url: PropTypes.string.isRequired,
+        blog: PropTypes.string,
+        company: PropTypes.string,
+        followers: PropTypes.number.isRequired,
+        following: PropTypes.number.isRequired,
+        location: PropTypes.string,
+        login: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        public_repos: PropTypes.number.isRequired,
+    }),
 }
 
 module.exports = UserDetails
