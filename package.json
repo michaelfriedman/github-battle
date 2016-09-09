@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/michaelfriedman/github-battle#readme",
   "dependencies": {
+    "axios": "^0.14.0",
     "raven-js": "^3.7.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",

@@ -17,7 +17,7 @@ const sentryURL = 'https://' + sentryKey + '@app.getSentry.com/' + sentryApp
 
 const _APP_INFO = {
   name: 'Github Battle',
-  branch: 'video4',
+  branch: 'video8',
   version: '1.0'
 }
 
