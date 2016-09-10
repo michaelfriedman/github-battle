@@ -5,12 +5,12 @@ const PromptContainer = React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
-  getInitialState: function() {
+  getInitialState: function () {
     return {
       username: ''
     }
   },
-  handleSubmitUser: function(e) {
+  handleSubmitUser: function (e) {
     e.preventDefault()
     const username = this.state.username
     this.setState({
@@ -21,25 +21,26 @@ const PromptContainer = React.createClass({
         pathname: '/battle',
         query: {
           playerOne: this.props.routeParams.playerOne,
-          playerTwo: this.state.username,
+          playerTwo: this.state.username
         }
       })
     } else {
       this.context.router.push('/playerTwo/' + this.state.username)
     }
   },
-  handleUpdateUser: function(event) {
+  handleUpdateUser: function (event) {
     this.setState({
       username: event.target.value
     })
   },
-  render: function() {
+  render: function () {
     return (
       <Prompt
-      onSubmitUser={this.handleSubmitUser}
-      onUpdateUser={this.handleUpdateUser}
-      header={this.props.route.header}
-      username={this.state.username} />
+        onSubmitUser={this.handleSubmitUser}
+        onUpdateUser={this.handleUpdateUser}
+        header={this.props.route.header}
+        username={this.state.username}
+      />
     )
   }
 })

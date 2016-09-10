@@ -24,11 +24,11 @@ const _APP_INFO = {
 Raven.config(sentryURL, {
   release: _APP_INFO.version,
   tags: {
-    branch: _APP_INFO.branch,
+    branch: _APP_INFO.branch
   }
 }).install()
 
 ReactDOM.render(
-    routes,
-    document.getElementById('app')
+  routes,
+  document.getElementById('app')
 )

@@ -21,9 +21,10 @@ const ResultsContainer = React.createClass({
   render: function () {
     return (
       <Results
-      isLoading={this.state.isLoading}
-      playersInfo={this.props.location.state.playersInfo}
-      scores={this.state.scores} />
+        isLoading={this.state.isLoading}
+        playersInfo={this.props.location.state.playersInfo}
+        scores={this.state.scores}
+      />
     )
   }
 })
