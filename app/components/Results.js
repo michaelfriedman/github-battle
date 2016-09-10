@@ -4,6 +4,7 @@ const styles = require('../styles')
 const UserDetails = require('./UserDetails')
 const UserDetailsWrapper = require('./UserDetailsWrapper')
 const Link = require('react-router').Link
+const MainContainer = require('./MainContainer')
 
 function StartOver () {
   return (
@@ -16,18 +17,24 @@ function StartOver () {
 }
 
 function Results (props) {
+  if (props.loading === true) {
+    return (
+      <p> LOADING </p>
+    )
+  }
+
   if (props.scores[0] === props.scores[1]) {
     return (
-      <div className='jumbotron col-sm-12 text-center' style={styles.transparentBg}>
+      <MainContainer>
         <h1> It's a tie! </h1>
         <StartOver />
-      </div>
+      </MainContainer>
     )
   }
   const winningIndex = props.scores[0] > props.scores[1] ? 0 : 1
   const losingIndex = winningIndex === 0 ? 1 : 0
   return (
-    <div className='jumbotron col-sm-12 text-center' style={styles.transparentBg}>
+    <MainContainer>
       <h1> Results </h1>
       <div className='col-sm-8 col-sm-offset-2'>
         <UserDetailsWrapper header='Winner'>
@@ -38,7 +45,7 @@ function Results (props) {
         </UserDetailsWrapper>
       </div>
       <StartOver />
-    </div>
+    </MainContainer>
   )
 }
 
