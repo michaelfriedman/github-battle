@@ -6,6 +6,7 @@ var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
+  devtool: 'source-map',
   entry: [
     './app/index.js'
   ],
@@ -15,7 +16,7 @@ module.exports = {
   },
   module: {
     loaders: [
-      {test: /\.js$/, include: __dirname + '/app', loader: "babel-loader"},
+      { test: /\.js$/, include: __dirname + '/app', loader: 'babel-loader'},
       { test: /\.css$/, loader: "style-loader!css-loader" }
     ]
   },

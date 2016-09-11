@@ -1,4 +1,5 @@
 const axios = require('axios')
+const logCustomMessage = require('./logCustomMessage')
 
 const id = 'YOUR_CLIENT_ID'
 const sec = 'YOUR_SECRET_ID'
@@ -46,14 +47,24 @@ const helpers = {
           return user.data
         })
       })
-      .catch(function (err) { console.warn('Error in getPlayersInfo: ', err) })
-  },
+      .catch(function (error) {
+        return logCustomMessage(error.statusText, {
+          players: players,
+          error: error
+        })
+      })
+    },
   battle: function (players) {
     const playerOneData = getPlayersData(players[0])
     const playerTwoData = getPlayersData(players[1])
     return axios.all([playerOneData, playerTwoData])
     .then(calculateScores)
-    .catch(function (err) { console.warn('Error in getPlayersInfo: ', err) })
+    .catch(function (error) {
+      return logCustomMessage(error.statusText, {
+        players: players,
+        error: error
+      })
+    })
   }
 }
 

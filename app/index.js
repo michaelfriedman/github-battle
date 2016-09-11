@@ -17,8 +17,12 @@ const sentryURL = 'https://' + sentryKey + '@app.getSentry.com/' + sentryApp
 
 const _APP_INFO = {
   name: 'Github Battle',
-  branch: 'video8',
+  branch: 'master',
   version: '1.0'
+}
+
+window.onerror = function () {
+  Raven.showReportDialog()
 }
 
 Raven.config(sentryURL, {
