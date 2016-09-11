@@ -1,5 +1,5 @@
-const axios = require('axios')
-const logCustomMessage = require('./logCustomMessage')
+import axios from 'axios'
+import logCustomMessage from './logCustomMessage'
 
 const id = 'YOUR_CLIENT_ID'
 const sec = 'YOUR_SECRET_ID'
@@ -37,35 +37,32 @@ function calculateScores (players) {
   ]
 }
 
-const helpers = {
-  getPlayersInfo: function (players) {
-    return axios.all(players.map(function (username) {
-      return getUserInfo(username)
-    }))
-      .then(function (info) {
-        return info.map(function (user) {
-          return user.data
-        })
+export function getPlayersInfo (players) {
+  return axios.all(players.map(function (username) {
+    return getUserInfo(username)
+  }))
+    .then(function (info) {
+      return info.map(function (user) {
+        return user.data
       })
-      .catch(function (error) {
-        return logCustomMessage(error.statusText, {
-          players: players,
-          error: error
-        })
-      })
-    },
-  battle: function (players) {
-    const playerOneData = getPlayersData(players[0])
-    const playerTwoData = getPlayersData(players[1])
-    return axios.all([playerOneData, playerTwoData])
-    .then(calculateScores)
+    })
     .catch(function (error) {
       return logCustomMessage(error.statusText, {
         players: players,
         error: error
       })
     })
-  }
 }
 
-module.exports = helpers
+export function battle (players) {
+  const playerOneData = getPlayersData(players[0])
+  const playerTwoData = getPlayersData(players[1])
+  return axios.all([playerOneData, playerTwoData])
+  .then(calculateScores)
+  .catch(function (error) {
+    return logCustomMessage(error.statusText, {
+      players: players,
+      error: error
+    })
+  })
+}

@@ -6,10 +6,9 @@
 [T]estable
 */
 
-const React = require('react')
-const ReactDOM = require('react-dom')
-const routes = require('./config/routes')
-const Raven = require('raven-js')
+import ReactDOM from 'react-dom'
+import routes from './config/routes'
+import Raven from 'raven-js'
 
 const sentryKey = 'ee210d24e9214461aa00d722f02c3a76'
 const sentryApp = '97495'

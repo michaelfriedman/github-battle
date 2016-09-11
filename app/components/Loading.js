@@ -1,5 +1,4 @@
-const React = require('react')
-const PropTypes = React.PropTypes
+import React, { PropTypes } from 'react'
 
 const styles = {
   container: {
@@ -61,4 +60,4 @@ const Loading = React.createClass({
   }
 })
 
-module.exports = Loading
+export default Loading

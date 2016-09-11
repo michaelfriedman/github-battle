@@ -1,6 +1,6 @@
-const React = require('react')
-const ConfirmBattle = require('../components/ConfirmBattle')
-const githubHelpers = require('../utils/githubHelpers')
+import React from 'react'
+import ConfirmBattle from '../components/ConfirmBattle'
+import { getPlayersInfo } from '../utils/githubHelpers'
 
 const ConfirmBattleContainer = React.createClass({
   contextTypes: {
@@ -13,8 +13,8 @@ const ConfirmBattleContainer = React.createClass({
     }
   },
   componentDidMount: function () {
-    const query = this.props.location.query
-    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+    const { query } = this.props.location
+    getPlayersInfo([query.playerOne, query.playerTwo])
       .then(function (players) {
         this.setState({
           isLoading: false,
@@ -41,4 +41,4 @@ const ConfirmBattleContainer = React.createClass({
   }
 })
 
-module.exports = ConfirmBattleContainer
+export default ConfirmBattleContainer
