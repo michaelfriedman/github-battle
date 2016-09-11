@@ -7,8 +7,8 @@ const Home = React.createClass({
   render: function () {
     return (
       <MainContainer>
-        <h1> by Michael Friedman, from ReactJSProgram.com Curriculum </h1>
-        <p className='lead'>This fancy placeholder</p>
+        <h1> Github Battle </h1>
+        <p className='lead'>by Michael Friedman, from ReactJSProgram.com Fundamentals </p>
         <Link to='/playerOne'>
           <button type='button' className='btn btn-lg btn-success'>Get Started</button>
         </Link>
