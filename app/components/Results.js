@@ -19,7 +19,7 @@ function StartOver () {
 
 function Results (props) {
   if (props.loading === true) {
-    return <Loading text='One Moment' speed={100}/>
+    return <Loading text='One Moment' speed={100} />
   }
 
   if (props.scores[0] === props.scores[1]) {

@@ -9,11 +9,10 @@ module.exports = {
     './app/index.js'
   ],
   module: {
-    loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    } ]
+    loaders: [
+      { test: /\.js$/, include: __dirname + '/app', loader: 'babel-loader'},
+      { test: /\.css$/, loader: 'style-loader!css-loader' }
+    ]
   },
   output: {
     filename: 'index_bundle.js',
