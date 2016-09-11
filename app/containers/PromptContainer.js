@@ -1,5 +1,5 @@
-const React = require('react')
-const Prompt = require('../components/Prompt.js')
+import React from 'react'
+import Prompt from '../components/Prompt.js'
 
 const PromptContainer = React.createClass({
   contextTypes: {
@@ -12,7 +12,7 @@ const PromptContainer = React.createClass({
   },
   handleSubmitUser: function (e) {
     e.preventDefault()
-    const username = this.state.username
+    const { username } = this.state
     this.setState({
       username: ''
     })
@@ -21,11 +21,11 @@ const PromptContainer = React.createClass({
         pathname: '/battle',
         query: {
           playerOne: this.props.routeParams.playerOne,
-          playerTwo: this.state.username
+          playerTwo: username
         }
       })
     } else {
-      this.context.router.push('/playerTwo/' + this.state.username)
+      this.context.router.push('/playerTwo/' + username)
     }
   },
   handleUpdateUser: function (event) {
@@ -45,4 +45,4 @@ const PromptContainer = React.createClass({
   }
 })
 
-module.exports = PromptContainer
+export default PromptContainer

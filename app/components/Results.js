@@ -1,15 +1,14 @@
-const React = require('react')
-const PropTypes = React.PropTypes
-const styles = require('../styles')
-const UserDetails = require('./UserDetails')
-const UserDetailsWrapper = require('./UserDetailsWrapper')
-const Link = require('react-router').Link
-const MainContainer = require('./MainContainer')
-const Loading = require('./Loading')
+import React, { PropTypes } from 'react'
+import { space } from '../styles'
+import UserDetails from './UserDetails'
+import UserDetailsWrapper from './UserDetailsWrapper'
+import { Link } from 'react-router'
+import MainContainer from './MainContainer'
+import Loading from './Loading'
 
 function StartOver () {
   return (
-    <div className='col-sm-12' style={styles.space}>
+    <div className='col-sm-12' style={space}>
       <Link to='/playerOne'>
         <button type='button' className='btn btn-lrg btn-danger'>Start Over</button>
       </Link>
@@ -54,4 +53,4 @@ Results.propTypes = {
   scores: PropTypes.array.isRequired
 }
 
-module.exports = Results
+export default Results
