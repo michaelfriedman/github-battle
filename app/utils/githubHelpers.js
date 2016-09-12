@@ -17,15 +17,17 @@ function getTotalStars (repos) {
   return repos.data.reduce((prev, current) => prev + current.stargazers_count, 0)
 }
 
-function getPlayersData (player) {
-  return getRepos(player.login)
-  .then(getTotalStars)
-  .then((totalStars) => (
-    {
-      followers: player.followers,
-      totalStars
-    }
-  ))
+async function getPlayersData (player) {
+  try {
+    const repos = await getRepos(player.login)
+    const totalStars = await getTotalStars(repos)
+    return {
+        followers: player.followers,
+        totalStars
+      }
+  } catch (error) {
+    console.warn(`There was an error in githubHelpers.js: ${error}`)
+  }
 }
 
 function calculateScores (players) {
@@ -35,26 +37,22 @@ function calculateScores (players) {
   ]
 }
 
-export function getPlayersInfo (players) {
-  return axios.all(players.map((username) => getUserInfo(username)))
-    .then((info) => info.map((user) => user.data))
-    .catch((error) => {
-      return logCustomMessage(error.statusText, {
-        players: players,
-        error: error
-      })
-    })
+export async function getPlayersInfo (players) {
+  try {
+    const info = await Promise.all(players.map((username) => getUserInfo(username)))
+    return info.map((user) => user.data)
+  } catch (error) {
+    console.warn(`There was an Error in getPlayersInfo inside githubHelpers: ${error}`)
+  }
 }
 
-export function battle (players) {
-  const playerOneData = getPlayersData(players[0])
-  const playerTwoData = getPlayersData(players[1])
-  return axios.all([playerOneData, playerTwoData])
-  .then(calculateScores)
-  .catch((error) => {
-    return logCustomMessage(error.statusText, {
-      players: players,
-      error: error
-    })
-  })
+export async function battle (players) {
+  try {
+    const playerOneData = getPlayersData(players[0])
+    const playerTwoData = getPlayersData(players[1])
+    const data = await Promise.all([playerOneData, playerTwoData])
+    return await calculateScores(data)
+  } catch (error) {
+    console.warn(`There was an error with the battle function inside githubHelpers: ${error}`)
+  }
 }
