@@ -2,7 +2,7 @@
   transition-duration: .7s;
   transition-property: opacity;
   transition-timing-function: ease-out;
-  opacity: 0
+  opacity: 0.1
 }
 
 .appear-enter.appear-enter-active {
