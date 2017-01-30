@@ -6,7 +6,8 @@
   "scripts": {
     "production": "webpack -p",
     "start": "webpack-dev-server",
-    "test": "standard"
+    "test": "standard",
+    "nf": "nf start"
   },
   "repository": {
     "type": "git",
@@ -20,6 +21,7 @@
   "homepage": "https://github.com/michaelfriedman/github-battle#readme",
   "dependencies": {
     "axios": "^0.14.0",
+    "foreman": "^2.0.0",
     "raven-js": "^3.7.0",
     "react": "^15.3.1",
     "react-addons-css-transition-group": "^15.3.1",
