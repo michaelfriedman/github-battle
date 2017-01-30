@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Github Battle App",
   "main": "index.js",
+  "engines": {
+    "node": "7.4.0"
+  },
   "scripts": {
     "production": "webpack -p",
     "start": "webpack-dev-server",
